@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('experiences', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
-            $table->string('website');
-            $table->string('github_url');
-            $table->string('twitter_url');
-            $table->unsignedInteger('experience_points');
+            $table->unsignedInteger('user_id');	
+            $table->unsignedInteger('points');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('experiences');
     }
 };
