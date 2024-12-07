@@ -58,6 +58,25 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class, 'user_id');
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id');
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'user_id');
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'user_id');
+    }
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class, 'user_id');
     }
 }
